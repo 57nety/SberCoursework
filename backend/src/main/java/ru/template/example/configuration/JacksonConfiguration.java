@@ -10,17 +10,24 @@ import org.springframework.context.annotation.Primary;
 
 import java.text.SimpleDateFormat;
 
+/**
+ * Класс, который конфигурирует objectMapper
+ */
 @Configuration
 public class JacksonConfiguration {
+    /**
+     * Бин, являющийся objectMapper, который отвечает за маппинг объектов java в формат json и наоборот
+     *
+     * @return бин objectMapper
+     */
     @Bean
     @Primary
     public ObjectMapper objectMapper() {
         ObjectMapper mapper = new ObjectMapper();
 
         mapper.registerModule(new JavaTimeModule());
-        mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
         mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-        mapper.setDateFormat(new SimpleDateFormat());
+        mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
 
         return mapper;
     }

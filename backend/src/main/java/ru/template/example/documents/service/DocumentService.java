@@ -1,6 +1,6 @@
 package ru.template.example.documents.service;
 
-import ru.template.example.documents.controller.dto.DocumentDto;
+import ru.template.example.documents.controllers.dto.DocumentDto;
 
 import java.util.List;
 import java.util.Set;
